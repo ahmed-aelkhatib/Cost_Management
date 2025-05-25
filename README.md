@@ -1,26 +1,25 @@
-<h1>📦 Cost Management System</h1>
-This repository contains a modular Cost Management System designed for handling financial operations such as logging costs, generating invoices, calculating taxes, and sending invoice reminders. The system is built with a set of SDKs and libraries to support scalability and integration with other applications.
+<h1>Cost Management System (.NET APIs)</h1>
+This project is a Cost Management System built using .NET, focused on providing clean and simple CRUD APIs for managing financial operations such as cost entries, invoices, and tax calculations.
 
-<h2>🧩 Modules Included:</h2>
+<h2>Project Modules:</h2>
 
-Cost Entry SDK – Log and store detailed cost records.
+Cost Entry API – Log, retrieve, update, and delete individual cost records.
 
-nvoice Generation SDK – Create client-specific invoices with itemized billing, taxes, and discounts.
+Invoice Generation API – Create invoices with client and product/service details, including tax and discount handling.
 
-Invoice Editing Library – Update invoices to reflect corrections or changes.
+Invoice Editing API – Modify existing invoices to reflect changes or corrections.
 
-Invoice Due Reminder SDK – Notify clients of upcoming or overdue payments via email, SMS, or in-app alerts.
+Invoice Due Reminder API – Manage reminders for upcoming or overdue invoices (email/SMS logic placeholder).
 
-Tax Calculation Library – Automatically apply regional tax rules to invoices.
+Tax Calculation API – Calculate tax amounts based on subtotal, region, and tax rate.
 
 
-<h2>✅ Key Features:</h2>
+<h2>Features:</h2>
 
-Modular and extensible architecture
+Built entirely in .NET using RESTful API design
 
-Accurate tax and discount calculations
+Basic CRUD operations for all modules
 
-Automated client notifications
+Modular code structure for easy maintenance and extension
 
-Easy invoice management and audit tracking
-
+Designed for integration into broader cost and invoice management platforms
