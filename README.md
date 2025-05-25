@@ -1,25 +1,107 @@
-<h1>Cost Management System (.NET APIs)</h1>
-This project is a Cost Management System built using .NET, focused on providing clean and simple CRUD APIs for managing financial operations such as cost entries, invoices, and tax calculations.
+ERPtask - Enterprise Resource Planning API
+Overview
+ERPtask is a .NET Core-based API for managing invoices, clients, costs, and notifications in an enterprise resource planning system. Built with ASP.NET Core, it provides RESTful endpoints to handle invoicing, client management, cost tracking, and notification services.
+Features
 
-<h2>Project Modules:</h2>
+Invoice Management: Create, edit, retrieve, and update invoices, including discounts and due dates.
+Client Management: Add, update, and retrieve client information, including region-specific details.
+Cost Tracking: Record and retrieve cost entries with categories, amounts, and descriptions.
+Notification System: Send reminders for invoice due dates and retrieve notification details.
 
-Cost Entry API – Log, retrieve, update, and delete individual cost records.
+Project Structure
+The project is organized into controllers, services, and models under the ERPtask namespace:
 
-Invoice Generation API – Create invoices with client and product/service details, including tax and discount handling.
-
-Invoice Editing API – Modify existing invoices to reflect changes or corrections.
-
-Invoice Due Reminder API – Manage reminders for upcoming or overdue invoices (email/SMS logic placeholder).
-
-Tax Calculation API – Calculate tax amounts based on subtotal, region, and tax rate.
+Controllers:
+InvoiceController.cs: Handles invoice creation, editing, and retrieval.
+ClientController.cs: Manages client data, including adding and updating clients with region support.
+CostController.cs: Manages cost entries for financial tracking.
+ReminderController.cs: Handles sending and retrieving notifications for invoice due dates.
 
 
-<h2>Features:</h2>
+Services: Contains business logic (e.g., InvoiceService, ClientService, CostService, NotificationService).
+Models: Defines data structures like InvoiceItem, Client, CostEntry, and request DTOs.
 
-Built entirely in .NET using RESTful API design
+API Endpoints
+InvoiceController
 
-Basic CRUD operations for all modules
+POST /api/Invoice: Create a new invoice.
+PUT /api/Invoice/{id}: Edit an existing invoice's items and discount.
+PUT /api/Invoice/editInvoice/{id}: Update an invoice's discount.
+GET /api/Invoice/allInvoices: Retrieve all invoices.
+GET /api/Invoice/{id}: Retrieve an invoice by ID.
+PUT /api/Invoice/updateDueDate/{id}: Update an invoice's due date.
 
-Modular code structure for easy maintenance and extension
+ClientController
 
-Designed for integration into broader cost and invoice management platforms
+POST /api/Client: Add a new client.
+PUT /api/Client/editClient/{id}: Update client details.
+GET /api/Client: Retrieve all clients.
+GET /api/Client/{id}: Retrieve a client by ID.
+
+CostController
+
+POST /api/Cost: Add a new cost entry.
+GET /api/Cost: Retrieve all cost entries.
+GET /api/Cost/{id}: Retrieve a cost entry by ID.
+
+ReminderController
+
+POST /api/Reminder: Send a due date reminder (default: email).
+GET /api/Reminder: Retrieve all notifications.
+GET /api/Reminder/{id}: Retrieve a notification by ID.
+
+Prerequisites
+
+.NET Core SDK (version 6.0 or later)
+A compatible IDE (e.g., Visual Studio, VS Code)
+A database (configured via services, not shown in the provided code)
+Dependency injection setup for services (InvoiceService, ClientService, CostService, NotificationService)
+
+Setup Instructions
+
+Clone the Repository:
+git clone https://github.com/your-username/ERPtask.git
+cd ERPtask
+
+
+Restore Dependencies:
+dotnet restore
+
+
+Configure Services:
+
+Ensure the database connection is configured (e.g., in appsettings.json).
+Register services in Startup.cs or Program.cs:services.AddScoped<InvoiceService>();
+services.AddScoped<ClientService>();
+services.AddScoped<CostService>();
+services.AddScoped<NotificationService>();
+
+
+
+
+Run the Application:
+dotnet run
+
+The API will be available at https://localhost:5001 (or the configured port).
+
+Test the API:Use tools like Postman or cURL to test endpoints. Example:
+curl -X POST https://localhost:5001/api/Invoice -H "Content-Type: application/json" -d '{"ClientID": 1, "Items": [{"Description": "Item1", "Quantity": 2, "UnitPrice": 10}], "Discount": 5}'
+
+
+
+Dependencies
+
+Microsoft.AspNetCore.Mvc: For building RESTful APIs.
+.NET Core: Framework for the application.
+(Additional dependencies may be required based on service implementations.)
+
+Contribution Guidelines
+
+Fork the repository and create a feature branch (git checkout -b feature/your-feature).
+Follow C# coding standards and add unit tests for new functionality.
+Submit a pull request with a clear description of changes.
+
+License
+This project is licensed under the MIT License.
+Contact
+For issues or questions, open an issue on GitHub or contact the repository maintainer.
