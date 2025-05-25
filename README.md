@@ -94,8 +94,3 @@ The project is organized into controllers, services, and models under the `ERPta
 2. Follow C# coding standards and add unit tests for new functionality.
 3. Submit a pull request with a clear description of changes.
 
-## License
-This project is licensed under the MIT License.
-
-## Contact
-For issues or questions, open an issue on GitHub or contact the repository maintainer.
